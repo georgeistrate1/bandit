@@ -1,0 +1,384 @@
+Bandit0: 
+ssh bandit0@bandit.labs.overthewire.org -p 2220
+
+Bandit1: 
+
+bandit0@bandit:~$ ls -l
+total 4
+-rw-r----- 1 bandit1 bandit0 33 May  7  2020 readme
+bandit0@bandit:~$ cat readme 
+boJ9jbbUNNfktd78OOpsqOltutMc3MY1
+
+
+Bandit2:
+
+bandit1@bandit:~$ ls -l
+total 4
+-rw-r----- 1 bandit2 bandit1 33 May  7  2020 -
+bandit1@bandit:~$ cat ./-
+CV1DtqXWVFXTvM2F0k09SHz0YwRINYA9
+
+Bandit3:
+bandit2@bandit:~$ ls -l
+total 4
+-rw-r----- 1 bandit3 bandit2 33 May  7  2020 spaces in this filename
+bandit2@bandit:~$ cat spaces\ in\ this\ filename 
+UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK
+
+
+
+Bandit4:
+
+bandit3@bandit:~$ cd inhere/
+bandit3@bandit:~/inhere$ ls -al
+total 12
+drwxr-xr-x 2 root    root    4096 May  7  2020 .
+drwxr-xr-x 3 root    root    4096 May  7  2020 ..
+-rw-r----- 1 bandit4 bandit3   33 May  7  2020 .hidden
+bandit3@bandit:~/inhere$ cat .hidden 
+pIwrPrtPN36QITSp3EQaw936yaFoFgAB
+
+Bandit5:
+
+bandit4@bandit:~$ ls -al
+total 24
+drwxr-xr-x  3 root root 4096 May  7  2020 .
+drwxr-xr-x 41 root root 4096 May  7  2020 ..
+-rw-r--r--  1 root root  220 May 15  2017 .bash_logout
+-rw-r--r--  1 root root 3526 May 15  2017 .bashrc
+drwxr-xr-x  2 root root 4096 May  7  2020 inhere
+-rw-r--r--  1 root root  675 May 15  2017 .profile
+bandit4@bandit:~$ cd inhere/
+bandit4@bandit:~/inhere$ file ./*
+./-file00: data
+./-file01: data
+./-file02: data
+./-file03: data
+./-file04: data
+./-file05: data
+./-file06: data
+./-file07: ASCII text
+./-file08: data
+./-file09: data
+bandit4@bandit:~/inhere$ cat ./-file07
+koReBOKuIDDepwhWk7jZC0RTdopnAYKh
+bandit4@bandit:~/inhere$
+
+Bandit6:
+bandit5@bandit:~$ cd inhere/
+bandit5@bandit:~/inhere$ ls -al
+total 88
+drwxr-x--- 22 root bandit5 4096 May  7  2020 .
+drwxr-xr-x  3 root root    4096 May  7  2020 ..
+drwxr-x---  2 root bandit5 4096 May  7  2020 maybehere00
+drwxr-x---  2 root bandit5 4096 May  7  2020 maybehere01
+drwxr-x---  2 root bandit5 4096 May  7  2020 maybehere02
+drwxr-x---  2 root bandit5 4096 May  7  2020 maybehere03
+drwxr-x---  2 root bandit5 4096 May  7  2020 maybehere04
+drwxr-x---  2 root bandit5 4096 May  7  2020 maybehere05
+drwxr-x---  2 root bandit5 4096 May  7  2020 maybehere06
+drwxr-x---  2 root bandit5 4096 May  7  2020 maybehere07
+drwxr-x---  2 root bandit5 4096 May  7  2020 maybehere08
+drwxr-x---  2 root bandit5 4096 May  7  2020 maybehere09
+drwxr-x---  2 root bandit5 4096 May  7  2020 maybehere10
+drwxr-x---  2 root bandit5 4096 May  7  2020 maybehere11
+drwxr-x---  2 root bandit5 4096 May  7  2020 maybehere12
+drwxr-x---  2 root bandit5 4096 May  7  2020 maybehere13
+drwxr-x---  2 root bandit5 4096 May  7  2020 maybehere14
+drwxr-x---  2 root bandit5 4096 May  7  2020 maybehere15
+drwxr-x---  2 root bandit5 4096 May  7  2020 maybehere16
+drwxr-x---  2 root bandit5 4096 May  7  2020 maybehere17
+drwxr-x---  2 root bandit5 4096 May  7  2020 maybehere18
+drwxr-x---  2 root bandit5 4096 May  7  2020 maybehere19
+bandit5@bandit:~/inhere$ find . -type f -size 1033c | file -f -
+./maybehere07/.file2:                    ASCII text, with very long lines
+bandit5@bandit:~/inhere$ cat ./maybehere07/.file2
+DXjZPULLxYr17uwoI01bNLQbtFemEgo7
+
+Bandit6:
+
+bandit6@bandit:~$ find / -type f -user bandit7 -group bandit6 -size 033c 2> /dev/null
+/var/lib/dpkg/info/bandit7.password
+bandit6@bandit:~$ cat /var/lib/dpkg/info/bandit7.password
+HKBPTKQnIay4Fw76bEy8PVxKEDQRKTzs
+bandit6@bandit:~$
+
+Bandit7:
+
+bandit7@bandit:~$ ls -al
+total 4108
+drwxr-xr-x  2 root    root       4096 May  7  2020 .
+drwxr-xr-x 41 root    root       4096 May  7  2020 ..
+-rw-r--r--  1 root    root        220 May 15  2017 .bash_logout
+-rw-r--r--  1 root    root       3526 May 15  2017 .bashrc
+-rw-r-----  1 bandit8 bandit7 4184396 May  7  2020 data.txt
+-rw-r--r--  1 root    root        675 May 15  2017 .profile
+bandit7@bandit:~$ cat data.txt | grep millionth
+millionth       cvX2JJa4CFALtqS87jk27qwqGhBM9plV
+bandit7@bandit:~$
+
+
+
+Bandit8:
+
+bandit8@bandit:~$ ls -al
+total 56
+drwxr-xr-x  2 root    root     4096 May  7  2020 .
+drwxr-xr-x 41 root    root     4096 May  7  2020 ..
+-rw-r--r--  1 root    root      220 May 15  2017 .bash_logout
+-rw-r--r--  1 root    root     3526 May 15  2017 .bashrc
+-rw-r-----  1 bandit9 bandit8 33033 May  7  2020 data.txt
+-rw-r--r--  1 root    root      675 May 15  2017 .profile
+bandit8@bandit:~$ cat data.txt | sort | uniq -u
+UsvVyFSfZZWbi6wgC7dAFyFuR6jQQUhR
+bandit8@bandit:~$
+
+Bandit9: 
+bandit9@bandit:~$ ls -al
+total 40
+drwxr-xr-x  2 root     root     4096 May  7  2020 .
+drwxr-xr-x 41 root     root     4096 May  7  2020 ..
+-rw-r--r--  1 root     root      220 May 15  2017 .bash_logout
+-rw-r--r--  1 root     root     3526 May 15  2017 .bashrc
+-rw-r-----  1 bandit10 bandit9 19379 May  7  2020 data.txt
+-rw-r--r--  1 root     root      675 May 15  2017 .profile
+bandit9@bandit:~$ strings data.txt | grep "==="
+========== the*2i"4
+========== password
+Z)========== is
+&========== truKLdjsbJ5g7yyJ2X2R0o3a5HQJFuLk
+
+
+Bandit10: 
+
+bandit10@bandit:~$ ls -al
+total 24
+drwxr-xr-x  2 root     root     4096 May  7  2020 .
+drwxr-xr-x 41 root     root     4096 May  7  2020 ..
+-rw-r--r--  1 root     root      220 May 15  2017 .bash_logout
+-rw-r--r--  1 root     root     3526 May 15  2017 .bashrc
+-rw-r-----  1 bandit11 bandit10   69 May  7  2020 data.txt
+-rw-r--r--  1 root     root      675 May 15  2017 .profile
+bandit10@bandit:~$ base64 -d data.txt 
+The password is IFukwKGsFW8MOq3IRFqrxE1hxTNEbUPR
+bandit10@bandit:~$
+
+Bandit11: 
+
+bandit11@bandit:~$ ls -al
+total 24
+drwxr-xr-x  2 root     root     4096 May  7  2020 .
+drwxr-xr-x 41 root     root     4096 May  7  2020 ..
+-rw-r--r--  1 root     root      220 May 15  2017 .bash_logout
+-rw-r--r--  1 root     root     3526 May 15  2017 .bashrc
+-rw-r-----  1 bandit12 bandit11   49 May  7  2020 data.txt
+-rw-r--r--  1 root     root      675 May 15  2017 .profile
+bandit11@bandit:~$ cat data.txt | tr 'N-ZA-Mn-za-m' 'A-Za-z'
+The password is 5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu
+bandit11@bandit:~$
+
+Bandit12:
+
+file data4
+   99  mv data4 data4.tar
+  100  ls -al
+  101  file data4.tar
+  102  tar xvf data4.tar data5
+  103  tar xvf data4.tar > data5
+  104  ls -al
+  105  tar xvf data5 > data6
+  106  rf -rf *
+  107  rm -f *
+  108  cp ~/data.txt .
+  109  ls
+  110  xxd -r data.txt data
+  111  ls -l
+  112  file data
+  113  mv data data.gz
+  114  ls -l
+  115  gzip -d data.gz
+  116  ls -l
+  117  file data
+  118  mv data data.bz2
+  119  ls -l
+  120  bzip2 -d data.bz2
+  121  ls
+  122  file data
+  123  mv data data.gz
+  124  ls -l
+  125  gzip -d data.gz
+  126  ls -l
+  127  file data
+  128  mv data data.tar
+  129  ls -l
+  130  tar xvf data.tar
+  131  ls
+  132  ls -l
+  133  mv data5.bin data5.tar
+  134  ls -al
+  135  tar xvf data5.tar
+  136  file data6.bin
+  137  mv data6.bin data6.tar
+  138  ls
+  139  tar xvf data6.tar
+  140  file data8.bin
+  141  mv data8.bin data8.gz
+  142  gzip -d data8.gz
+  143  ls -al
+  144  file data8
+  145  cat data8
+
+Bandit13:
+
+bandit13@bandit:~$ ssh -i /home/bandit13/sshkey.private bandit14@localhost
+
+
+
+Bandit14:
+
+bandit14@bandit:~$ cat  /etc/bandit_pass/bandit14
+4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e
+bandit14@bandit:~$ nc localhost 30000
+4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e
+Correct!
+BfMYroe26WYalil77FoDi9qh59eK5xNr
+
+bandit14@bandit:~$ 
+
+
+
+Bandit15:
+
+bandit15@bandit:~$ ncat --ssl localhost 30001
+BfMYroe26WYalil77FoDi9qh59eK5xNr
+Correct!
+cluFn7wTiGryunymYOu4RcffSxQluehd
+
+q
+
+Bandit16: 
+
+bandit16@bandit:~$ netcat -z -v localhost 31000-32000
+localhost [127.0.0.1] 31960 (?) open
+localhost [127.0.0.1] 31790 (?) open
+localhost [127.0.0.1] 31691 (?) open
+localhost [127.0.0.1] 31518 (?) open
+localhost [127.0.0.1] 31046 (?) open
+
+bandit16@bandit:~$ ncat --ssl localhost 31790
+cluFn7wTiGryunymYOu4RcffSxQluehd
+Correct!
+-----BEGIN RSA PRIVATE KEY-----
+MIIEogIBAAKCAQEAvmOkuifmMg6HL2YPIOjon6iWfbp7c3jx34YkYWqUH57SUdyJ
+imZzeyGC0gtZPGujUSxiJSWI/oTqexh+cAMTSMlOJf7+BrJObArnxd9Y7YT2bRPQ
+Ja6Lzb558YW3FZl87ORiO+rW4LCDCNd2lUvLE/GL2GWyuKN0K5iCd5TbtJzEkQTu
+DSt2mcNn4rhAL+JFr56o4T6z8WWAW18BR6yGrMq7Q/kALHYW3OekePQAzL0VUYbW
+JGTi65CxbCnzc/w4+mqQyvmzpWtMAzJTzAzQxNbkR2MBGySxDLrjg0LWN6sK7wNX
+x0YVztz/zbIkPjfkU1jHS+9EbVNj+D1XFOJuaQIDAQABAoIBABagpxpM1aoLWfvD
+KHcj10nqcoBc4oE11aFYQwik7xfW+24pRNuDE6SFthOar69jp5RlLwD1NhPx3iBl
+J9nOM8OJ0VToum43UOS8YxF8WwhXriYGnc1sskbwpXOUDc9uX4+UESzH22P29ovd
+d8WErY0gPxun8pbJLmxkAtWNhpMvfe0050vk9TL5wqbu9AlbssgTcCXkMQnPw9nC
+YNN6DDP2lbcBrvgT9YCNL6C+ZKufD52yOQ9qOkwFTEQpjtF4uNtJom+asvlpmS8A
+vLY9r60wYSvmZhNqBUrj7lyCtXMIu1kkd4w7F77k+DjHoAXyxcUp1DGL51sOmama
++TOWWgECgYEA8JtPxP0GRJ+IQkX262jM3dEIkza8ky5moIwUqYdsx0NxHgRRhORT
+8c8hAuRBb2G82so8vUHk/fur85OEfc9TncnCY2crpoqsghifKLxrLgtT+qDpfZnx
+SatLdt8GfQ85yA7hnWWJ2MxF3NaeSDm75Lsm+tBbAiyc9P2jGRNtMSkCgYEAypHd
+HCctNi/FwjulhttFx/rHYKhLidZDFYeiE/v45bN4yFm8x7R/b0iE7KaszX+Exdvt
+SghaTdcG0Knyw1bpJVyusavPzpaJMjdJ6tcFhVAbAjm7enCIvGCSx+X3l5SiWg0A
+R57hJglezIiVjv3aGwHwvlZvtszK6zV6oXFAu0ECgYAbjo46T4hyP5tJi93V5HDi
+Ttiek7xRVxUl+iU7rWkGAXFpMLFteQEsRr7PJ/lemmEY5eTDAFMLy9FL2m9oQWCg
+R8VdwSk8r9FGLS+9aKcV5PI/WEKlwgXinB3OhYimtiG2Cg5JCqIZFHxD6MjEGOiu
+L8ktHMPvodBwNsSBULpG0QKBgBAplTfC1HOnWiMGOU3KPwYWt0O6CdTkmJOmL8Ni
+blh9elyZ9FsGxsgtRBXRsqXuz7wtsQAgLHxbdLq/ZJQ7YfzOKU4ZxEnabvXnvWkU
+YOdjHdSOoKvDQNWu6ucyLRAWFuISeXw9a/9p7ftpxm0TSgyvmfLF2MIAEwyzRqaM
+77pBAoGAMmjmIJdjp+Ez8duyn3ieo36yrttF5NSsJLAbxFpdlc1gvtGCWW+9Cq0b
+dxviW8+TFVEBl1O4f7HVm6EpTscdDxU+bCXWkfjuRb7Dy9GOtt9JPsX8MBTakzh3
+vBgsyi/sN3RqRBcGU40fOoZyfAMT8s1m/uYv52O6IgeuZ/ujbjY=
+-----END RSA PRIVATE KEY-----
+
+bandit16@bandit:/$ mkdir /tmp/eu
+bandit16@bandit:/$ cd /tmp/eu
+bandit16@bandit:/tmp/eu$ ls -al
+total 1992
+drwxr-sr-x 2 bandit16 root    4096 Dec 21 16:33 .
+drwxrws-wt 1 root     root 2031616 Dec 21 16:33 ..
+bandit16@bandit:/tmp/eu$ nano private
+bandit16@bandit:/tmp/eu$ chmod 600 private 
+bandit16@bandit:/tmp/eu$ ssh -i /tmp/eu/private bandit17@localhost
+
+Bandit 17-18:
+
+bandit17@bandit:~$ ls -al
+total 36
+drwxr-xr-x  3 root     root     4096 Jul 11  2020 .
+drwxr-xr-x 41 root     root     4096 May  7  2020 ..
+-rw-r-----  1 bandit17 bandit17   33 Jul 11  2020 .bandit16.password
+-rw-r--r--  1 root     root      220 May 15  2017 .bash_logout
+-rw-r--r--  1 root     root     3526 May 15  2017 .bashrc
+-rw-r-----  1 bandit18 bandit17 3300 May  7  2020 passwords.new
+-rw-r-----  1 bandit18 bandit17 3300 May  7  2020 passwords.old
+-rw-r--r--  1 root     root      675 May 15  2017 .profile
+drwxr-xr-x  2 root     root     4096 Jul 11  2020 .ssh
+bandit17@bandit:~$ diff passwords.old passwords.new --color
+42c42
+< w0Yfolrc5bwjS4qw5mq1nnQi6mF03bii
+---
+> kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd
+
+PS C:\Users\gistrate\Bandit> ssh bandit18@bandit.labs.overthewire.org -p 2220 "cat ./readme"
+This is a OverTheWire game server. More information on http://www.overthewire.org/wargames
+
+bandit18@bandit.labs.overthewire.org's password:
+IueksS7Ubh8G3DCwVzrTd8rAVOwq3M5x
+PS C:\Users\gistrate\Bandit> 
+
+
+
+Bandit19: 
+bandit19@bandit:~$ ls -al
+total 28
+drwxr-xr-x  2 root     root     4096 May  7  2020 .
+drwxr-xr-x 41 root     root     4096 May  7  2020 ..
+-rwsr-x---  1 bandit20 bandit19 7296 May  7  2020 bandit20-do
+-rw-r--r--  1 root     root      220 May 15  2017 .bash_logout
+-rw-r--r--  1 root     root     3526 May 15  2017 .bashrc
+-rw-r--r--  1 root     root      675 May 15  2017 .profile
+bandit19@bandit:~$ pwd
+/home/bandit19
+bandit19@bandit:~$ /home/bandit19/bandit20-do 
+Run a command as another user.
+  Example: /home/bandit19/bandit20-do id
+bandit19@bandit:~$ /home/bandit19/bandit20-do cat /etc/bandit_pass/bandit20
+GbKksEFF4yrVs6il55v6gwY5aVje5f0j
+
+
+
+<!--The password for natas2 is ZluruAthQk7Q2MqmDeTiUij2ZvWy2mBi -->
+
+<input type="hidden" name="password_solution" value="ZluruAthQk7Q2MqmDeTiUij2ZvWy2mBi">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
